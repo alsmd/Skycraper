@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 02:47:06 by flda-sil          #+#    #+#             */
-/*   Updated: 2022/02/12 14:37:31 by flda-sil         ###   ########.fr       */
+/*   Updated: 2022/02/12 16:02:26 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	reset(t_rush *rush)
 	while (index < rush->size)
 	{
 		rush->active_line[index] = 0;
+		rush->line_to_fill[index] = 0;
 		index++;
 	}
 	rush->index = 0;

@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 13:06:24 by flda-sil          #+#    #+#             */
-/*   Updated: 2022/02/12 15:14:13 by flda-sil         ###   ########.fr       */
+/*   Updated: 2022/02/12 16:02:22 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	malloc_board(t_rush *rush)
 	rush->map = (char **) ft_calloc(rush->size, sizeof(char *));
 	rush->rule = (char **) ft_calloc(4, sizeof(char *));
 	rush->active_line = (char *) ft_calloc(rush->size, sizeof(char));
+	rush->line_to_fill = (char *) ft_calloc(rush->size, sizeof(char));
 	while (index < rush->size)
 	{
 		rush->map[index] = ft_calloc(rush->size, sizeof(char));

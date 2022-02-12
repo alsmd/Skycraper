@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 02:47:03 by flda-sil          #+#    #+#             */
-/*   Updated: 2022/02/12 14:53:45 by flda-sil         ###   ########.fr       */
+/*   Updated: 2022/02/12 16:02:21 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_rush
 	int		towers_in_view;
 	int		missing_towers;
 	char	*active_line;
+	char	*line_to_fill;
 	int		index;
 }	t_rush;
 
@@ -33,6 +34,7 @@ int		fill_square(t_rush *rush, int line, int col);
 
 //Create board
 int	create_board(t_rush *rush, char *argv[]);
+int	get_lower_tower(t_rush *rush, char *active_line);
 
 //Checks
 
