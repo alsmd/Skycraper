@@ -1,4 +1,4 @@
-#include <rush.h>
+#include <sky.h>
 
 int	ft_strlen(const char *s)
 {

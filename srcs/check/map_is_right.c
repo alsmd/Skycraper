@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rush.h>
+#include <sky.h>
 
 /*
-	@brief	Check if the towers inside rush->map[4][4] is right according
+	@brief	Check if the towers inside sky->map[4][4] is right according
 			to the rule
 */
-int	map_is_right(t_rush *rush)
+int	map_is_right(t_sky *sky)
 {
-	if (!check_colup(rush) || !check_coldown(rush))
+	if (!check_colup(sky) || !check_coldown(sky))
 		return (0);
-	if (!check_rowleft(rush) || !check_rowright(rush))
+	if (!check_rowleft(sky) || !check_rowright(sky))
 		return (0);
 	return (1);
 }

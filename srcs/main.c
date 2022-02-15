@@ -10,24 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rush.h>
+#include <sky.h>
 
 int	main(int argc, char *argv[])
 {
-	t_rush	rush;
+	t_sky	sky;
 	if (argc < 6)
 		return (0);
 	
-	if (!create_board(&rush, &argv[1]))
+	if (!create_board(&sky, &argv[1]))
 	{
 		printf("Erro Creating Rule and Board!\n");
 		return (0);
 	}
-	fill_square(&rush, 0, 0);
-	if (map_is_right(&rush))
-		printf("Mapa esta correto\n");
-	else
-		printf("Mapa esta incorreto\n");
-	print_board(&rush);
+	fill_square(&sky, 0, 0);
+	print_board(&sky);
 	return (0);
 }

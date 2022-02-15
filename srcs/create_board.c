@@ -10,20 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rush.h>
+#include <sky.h>
 
-void	malloc_board(t_rush *rush)
+void	malloc_board(t_sky *sky)
 {
 	int	index;
 
 	index = 0;
-	rush->map = (char **) ft_calloc(rush->size, sizeof(char *));
-	rush->rule = (char **) ft_calloc(4, sizeof(char *));
-	rush->active_line = (char *) ft_calloc(rush->size, sizeof(char));
-	rush->line_to_fill = (char *) ft_calloc(rush->size, sizeof(char));
-	while (index < rush->size)
+	sky->map = (char **) ft_calloc(sky->size, sizeof(char *));
+	sky->rule = (char **) ft_calloc(4, sizeof(char *));
+	sky->active_line = (char *) ft_calloc(sky->size, sizeof(char));
+	sky->line_to_fill = (char *) ft_calloc(sky->size, sizeof(char));
+	while (index < sky->size)
 	{
-		rush->map[index] = ft_calloc(rush->size, sizeof(char));
+		sky->map[index] = ft_calloc(sky->size, sizeof(char));
 		index++;
 	}
 }
@@ -42,7 +42,7 @@ int	has_just_number(char *str)
 	return (1);
 }
 
-int	check_rule_size(t_rush *rush, char *rule[])
+int	check_rule_size(t_sky *sky, char *rule[])
 {
 	int	index;
 	int	line_size;
@@ -53,7 +53,7 @@ int	check_rule_size(t_rush *rush, char *rule[])
 		line_size = ft_strlen(rule[index]);
 		if (!has_just_number(rule[index]))
 			return (1);
-		if (line_size != rush->size)
+		if (line_size != sky->size)
 			return (1);
 		if (index == 4)
 			return (1);
@@ -64,25 +64,25 @@ int	check_rule_size(t_rush *rush, char *rule[])
 	return (0);
 }
 
-void	create_rule(t_rush *rush, char *rule[])
+void	create_rule(t_sky *sky, char *rule[])
 {
 	int	index;
 
 	index = 0;
 	while (rule[index])
 	{
-		rush->rule[index] = rule[index];
+		sky->rule[index] = rule[index];
 		index++;
 	}
 }
-int	create_board(t_rush *rush, char *argv[])
+int	create_board(t_sky *sky, char *argv[])
 {
-	rush->size = ft_atoi(argv[0]);
-	if (rush->size < 4 || rush->size > 9)
+	sky->size = ft_atoi(argv[0]);
+	if (sky->size < 4 || sky->size > 9)
 		return (0);
-	malloc_board(rush);
-	if (check_rule_size(rush, &argv[1]))
+	malloc_board(sky);
+	if (check_rule_size(sky, &argv[1]))
 		return (0);
-	create_rule(rush, &argv[1]);
+	create_rule(sky, &argv[1]);
 	return (1);
 }

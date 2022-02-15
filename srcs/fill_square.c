@@ -10,35 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <rush.h>
+#include <sky.h>
 
 /*
 	@brief	Get the tower that was not used in this block,
 			and is not been used in this line and column
 */
-int	get_available_tower(t_rush *rush, int line, int col, char *used)
+int	get_available_tower(t_sky *sky, int line, int col, char *used)
 {
 	char	*missing;
 	int		lower;
 	int		index;
 
-	missing = (char *) ft_calloc(rush->size, sizeof(char));
-	set_options(rush, missing);
+	missing = (char *) ft_calloc(sky->size, sizeof(char));
+	set_options(sky, missing);
 	lower = 0;
 	index = 0;
-	while (index < rush->size)
+	while (index < sky->size)
 	{
-		if (rush->map[line][index] != 0)
-			missing[rush->map[line][index] - 1] = 10;
-		if (rush->map[index][col] != 0)
-			missing[rush->map[index][col] - 1] = 10;
+		if (sky->map[line][index] != 0)
+			missing[sky->map[line][index] - 1] = 10;
+		if (sky->map[index][col] != 0)
+			missing[sky->map[index][col] - 1] = 10;
 		index++;
 	}
 	index = 0;
-	while (index < rush->size)
+	while (index < sky->size)
 	{
 		if ((missing[index] < lower || lower == 0) && \
-			(!is_in(used, missing[index], rush->size) && missing[index] != 10))
+			(!is_in(used, missing[index], sky->size) && missing[index] != 10))
 			lower = missing[index];
 		index++;
 	}
@@ -47,34 +47,34 @@ int	get_available_tower(t_rush *rush, int line, int col, char *used)
 }
 
 /*
-	@brief	fill rush->map[4][4] according to skyscraper's rules
-			that is inside rush->rule[4][4] using backtracking.
+	@brief	fill sky->map[4][4] according to skyscraper's rules
+			that is inside sky->rule[4][4] using backtracking.
 */
-int	fill_square(t_rush *rush, int line, int col)
+int	fill_square(t_sky *sky, int line, int col)
 {
 	int		tower;
 	char	*tower_tried;
 
-	tower_tried = ft_calloc(rush->size, sizeof(char));
-	if (col == rush->size)
-		return (fill_square(rush, line + 1, 0));
-	if (line == rush->size)
+	tower_tried = ft_calloc(sky->size, sizeof(char));
+	if (col == sky->size)
+		return (fill_square(sky, line + 1, 0));
+	if (line == sky->size)
 		return (1);
-	while (get_available_tower(rush, line, col, tower_tried))
+	while (get_available_tower(sky, line, col, tower_tried))
 	{
-		tower = get_available_tower(rush, line, col, tower_tried);//1 2 0 0
-		if (rush->map[line][col] == 0)
-			rush->map[line][col] = tower;
-		if (map_is_right(rush))
+		tower = get_available_tower(sky, line, col, tower_tried);//1 2 0 0
+		if (sky->map[line][col] == 0)
+			sky->map[line][col] = tower;
+		if (map_is_right(sky))
 		{
-			if (fill_square(rush, line, col + 1))
+			if (fill_square(sky, line, col + 1))
 			{
 				free(tower_tried);
 				return (1);
 			}
 		}
 		tower_tried[tower - 1] = tower;
-		rush->map[line][col] = 0;
+		sky->map[line][col] = 0;
 	}
 	free(tower_tried);
 	return (0);

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush.h                                             :+:      :+:    :+:   */
+/*   sky.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RUSH_H
-# define RUSH_H
+#ifndef SKY_H
+# define SKY_H
 # define LOWER 1
 # define HIGHER -1
 # include <stdio.h>
 # include <stdlib.h>
-typedef struct s_rush
+typedef struct s_sky
 {
 	char	**rule;
 	char	**map;
@@ -27,31 +27,31 @@ typedef struct s_rush
 	char	*active_line;
 	char	*line_to_fill;
 	int		index;
-}	t_rush;
+}	t_sky;
 
-void	reset(t_rush *rush);
-int		fill_square(t_rush *rush, int line, int col);
+void	reset(t_sky *sky);
+int		fill_square(t_sky *sky, int line, int col);
 
 //Create board
-int	create_board(t_rush *rush, char *argv[]);
-int	get_lower_tower(t_rush *rush, char *active_line);
+int	create_board(t_sky *sky, char *argv[]);
+int	get_lower_tower(t_sky *sky, char *active_line);
 
 //Checks
 
-int		map_is_right(t_rush *rush);
-int		wrong_sight(t_rush *rush, int has_to_see);
-int		check_coldown(t_rush *rush);
-int		check_colup(t_rush *rush);
-int		check_rowleft(t_rush *rush);
-int		check_rowright(t_rush *rush);
+int		map_is_right(t_sky *sky);
+int		wrong_sight(t_sky *sky, int has_to_see);
+int		check_coldown(t_sky *sky);
+int		check_colup(t_sky *sky);
+int		check_rowleft(t_sky *sky);
+int		check_rowright(t_sky *sky);
 
 //Utils
 
 int		is_in(char *array, int c, int size);
-void	set_options(t_rush *rush, char *option);
+void	set_options(t_sky *sky, char *option);
 int		ft_atoi(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_strlen(const char *s);
-void	print_board(t_rush *rush);
+void	print_board(t_sky *sky);
 
 #endif

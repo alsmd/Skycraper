@@ -1,4 +1,4 @@
-#include <rush.h>
+#include <sky.h>
 
 static int	is_space(char c)
 {

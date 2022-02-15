@@ -1,4 +1,4 @@
-./rush-01 "col1up col2up col3up col4up col1down col2down col3down
+./sky-01 "col1up col2up col3up col4up col1down col2down col3down
 col4down row1left row2left
 row3left row4left row1right row2right row3right row4right"
 
@@ -13,4 +13,4 @@ row3left row4left row1right row2right row3right row4right"
 	tentar colocar numero a numero e checar se é valido em todos lados
 
 compilação:
-	gcc -I./includes -o rush ./srcs/*.c ./srcs/check/*.c  && ./rush 
+	gcc -I./includes -o sky ./srcs/*.c ./srcs/check/*.c  && ./sky 
